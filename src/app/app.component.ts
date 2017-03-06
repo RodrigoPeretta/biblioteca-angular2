@@ -7,10 +7,10 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
   books: FirebaseListObservable<any[]>;
 
   constructor(fb: AngularFire){
     this.books = fb.database.list('/Books');
   }
+
 }

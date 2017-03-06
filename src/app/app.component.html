@@ -1,3 +1,36 @@
-<ul>
-    <li *ngFor = "let book of books | async">{{book.title}}</li>
-</ul>
+<md-toolbar color="primary">
+    <span>Biblioteca</span>
+    <span class="spacer"></span>
+    <button md-icon-button [mdMenuTriggerFor]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item>
+        <md-icon>fingerprint</md-icon>
+        <span>Login</span>
+      </button>
+    </md-menu>
+</md-toolbar>
+<md-tab-group>
+  <md-tab label="Galeria" class="tabcontent">
+    <div fxLayoutWrap fxLayoutAlign="center center">
+        <md-card  *ngFor = "let book of books | async" fxFlex.gt-sm="32" fxFlex="95" class="card" > 
+        <md-card-header class="cardtitle">
+            <md-card-title><h4>{{book.title}}</h4></md-card-title>
+        </md-card-header>
+        <md-card-content fxLayout="row" fxLayout.xs="column" class="cardcontent">
+            <div fxFlex="60"><p>{{book.description}}</p></div>
+            <div class="img" fxFlex="30"><img md-card-image  src="{{book.logo}}" class="imagecontent"></div>
+        </md-card-content>
+        <md-card-actions>
+            <button md-button >Download</button>
+        </md-card-actions>
+        </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="Favoritos">
+    
+  </md-tab>
+</md-tab-group>
+
+
