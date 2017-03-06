@@ -1,3 +1,3 @@
-<h1>
-  {{title}}
-</h1>
+<ul>
+    <li *ngFor = "let book of books | async">{{book.title}}</li>
+</ul>
